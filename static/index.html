@@ -205,41 +205,63 @@
   </section>
 
   <section class="payments-section defer-section" aria-labelledby="payments-title">
+    <div class="payments-orb payments-orb-a" aria-hidden="true"></div>
+    <div class="payments-orb payments-orb-b" aria-hidden="true"></div>
+
     <div class="payments-inner">
       <div class="payments-copy motion-reveal motion-reveal-left">
-        <span class="kicker">FORMAS DE PAGAMENTO</span>
-        <h2 id="payments-title">Escolha a forma que funciona melhor para você.</h2>
-        <p>Consulte as condições disponíveis no momento do orçamento. A equipe confirma as opções e eventuais parcelamentos pelo WhatsApp.</p>
+        <span class="kicker kicker-light">FORMAS DE PAGAMENTO</span>
+        <h2 id="payments-title">Pagamento simples, visual e sem complicação.</h2>
+        <p>Consulte no orçamento as condições disponíveis e as possibilidades de parcelamento para o seu atendimento.</p>
+
+        <div class="payments-trust">
+          <span class="payments-trust-dot" aria-hidden="true"></span>
+          <span>Condições confirmadas diretamente com a equipe CLIMAX</span>
+        </div>
       </div>
 
-      <div class="payment-methods motion-stagger" data-stagger-group aria-label="Formas de pagamento aceitas">
-        <div class="payment-card payment-pix motion-item" data-motion-item>
-          <span class="payment-mark payment-mark-pix" aria-hidden="true">◆</span>
-          <span class="payment-name">PIX</span>
+      <div class="payments-panel motion-reveal motion-reveal-up">
+        <div class="payments-panel-head">
+          <div>
+            <span class="payments-panel-eyebrow">OPÇÕES</span>
+            <strong>Escolha como pagar</strong>
+          </div>
+          <span class="payments-panel-badge">Pagamento facilitado</span>
         </div>
-        <div class="payment-card payment-visa motion-item" data-motion-item>
-          <span class="payment-brand payment-brand-visa" aria-hidden="true">VISA</span>
-          <span class="sr-only">Visa</span>
+
+        <div class="payment-methods motion-stagger" data-stagger-group aria-label="Opções de pagamento">
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/pix.svg" alt="PIX" width="78" height="52" loading="lazy" decoding="async">
+            <span>PIX</span>
+          </div>
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/visa.svg" alt="Visa" width="70" height="48" loading="lazy" decoding="async">
+            <span>Visa</span>
+          </div>
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/mastercard.svg" alt="Mastercard" width="70" height="48" loading="lazy" decoding="async">
+            <span>Mastercard</span>
+          </div>
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/elo.svg" alt="Elo" width="78" height="52" loading="lazy" decoding="async">
+            <span>Elo</span>
+          </div>
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/hipercard.svg" alt="Hipercard" width="78" height="52" loading="lazy" decoding="async">
+            <span>Hipercard</span>
+          </div>
+          <div class="payment-card motion-item" data-motion-item>
+            <img src="/payment-icons/amex.svg" alt="American Express" width="70" height="48" loading="lazy" decoding="async">
+            <span>American Express</span>
+          </div>
+          <div class="payment-card motion-item payment-card-wide" data-motion-item>
+            <img src="/payment-icons/boleto.svg" alt="Boleto" width="78" height="52" loading="lazy" decoding="async">
+            <span>Boleto</span>
+          </div>
         </div>
-        <div class="payment-card payment-mastercard motion-item" data-motion-item>
-          <span class="payment-mastercard-mark" aria-hidden="true"><i></i><b></b></span>
-          <span class="payment-name">Mastercard</span>
-        </div>
-        <div class="payment-card payment-elo motion-item" data-motion-item>
-          <span class="payment-brand payment-brand-elo" aria-hidden="true">elo</span>
-          <span class="sr-only">Elo</span>
-        </div>
-        <div class="payment-card payment-hipercard motion-item" data-motion-item>
-          <span class="payment-brand payment-brand-hiper" aria-hidden="true">Hipercard</span>
-          <span class="sr-only">Hipercard</span>
-        </div>
-        <div class="payment-card payment-amex motion-item" data-motion-item>
-          <span class="payment-brand payment-brand-amex" aria-hidden="true">AMEX</span>
-          <span class="sr-only">American Express</span>
-        </div>
-        <div class="payment-card payment-boleto motion-item" data-motion-item>
-          <span class="payment-boleto-mark" aria-hidden="true">▥</span>
-          <span class="payment-name">Boleto</span>
+
+        <div class="payments-panel-foot">
+          <span>Valores, disponibilidade e parcelamento são confirmados no orçamento.</span>
         </div>
       </div>
     </div>
