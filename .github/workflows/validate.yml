@@ -29,12 +29,16 @@ jobs:
         run: |
           node --version
           npm --version
+          npx wrangler --version
 
       - name: Clean install
         run: npm clean-install --progress=false
 
       - name: Build
         run: npm run build
+
+      - name: Wrangler deploy dry run
+        run: npx wrangler deploy --dry-run --outdir .wrangler-dry-run
 
       - name: Lint
         run: npm run lint
