@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
 import NativeLanding from "./NativeLanding";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "CLIMAX Refrigeração | Ar-condicionado em Jaboticabal e Região",
   description: "Instalação, manutenção e climatização para lojas, igrejas e empresas em Jaboticabal, Matão e região.",
 };
