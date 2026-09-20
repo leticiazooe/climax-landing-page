@@ -25,8 +25,8 @@ const rules = [
   [css.includes("--motion-fast:"), "Motion token system is missing"],
   [css.includes("--ease-cinematic:"), "Motion easing system is missing"],
   [css.includes("prefers-reduced-motion"), "Reduced-motion behavior is missing"],
-  [css.includes("content-visibility: auto"), "Below-fold sections must defer rendering"],
-  [css.includes("contain-intrinsic-size: auto"), "Deferred sections must preserve stable layout"],
+  [/content-visibility\s*:\s*auto/.test(css), "Below-fold sections must defer rendering"],
+  [/contain-intrinsic-size\s*:\s*auto/.test(css), "Deferred sections must preserve stable layout"],
   [motion.includes("IntersectionObserver"), "Viewport motion must use IntersectionObserver"],
   [!motion.includes("requestAnimationFrame"), "Continuous requestAnimationFrame loops are not allowed"],
 ];
