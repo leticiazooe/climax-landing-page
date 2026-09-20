@@ -1,4 +1,4 @@
-name: Validate CLIMAX build
+name: Validate CLIMAX static deploy
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -25,20 +25,14 @@ jobs:
       - name: Match Cloudflare npm
         run: npm install --global npm@10.9.2
 
-      - name: Verify toolchain
-        run: |
-          node --version
-          npm --version
-          npx wrangler --version
-
       - name: Clean install
         run: npm clean-install --progress=false
 
-      - name: Build
+      - name: Build static site
         run: npm run build
 
-      - name: Lint
-        run: npm run lint
+      - name: Enforce performance budget
+        run: npm run check
 
-      - name: Wrangler deploy dry run
+      - name: Verify static deploy bundle
         run: npx wrangler deploy --dry-run --outdir .wrangler-dry-run
