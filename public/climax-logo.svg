@@ -1,10 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 656 263" role="img" aria-labelledby="title desc">
   <title id="title">CLIMAX Refrigeração</title>
-  <desc id="desc">Logotipo da CLIMAX Refrigeração</desc>
-  <g transform="translate(24 24)">
-    <path d="M15 46c0-22 18-40 40-40h36v18H55c-12 0-22 10-22 22s10 22 22 22h36v18H55c-22 0-40-18-40-40Z" fill="#0768ad"/>
-    <path d="M72 5h18v82H72z" fill="#7dddf3" opacity=".95"/>
-  </g>
-  <text x="130" y="70" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="800" letter-spacing="2" fill="#0768ad">CLIMAX</text>
-  <text x="132" y="101" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#4f6877">REFRIGERAÇÃO</text>
+  <desc id="desc">Logotipo oficial fornecido pela CLIMAX Refrigeração</desc>
+  <image width="656" height="263" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApAAAAEHBAMAAADrEGsFAAAAMFBMVEXx8vLu8PHn6+7c5evT3ujA0uKqw9qSs9JsmsVWjb48e7Unba4cZqsRX6cLW6UKW6T4VTIAAAATnklEQVR42u1dXZAU13X+enqWyG8Ny0/kvDSsBdiVh9mdhcjxy8AKsEpJ1SJWIKFK1SItEGSXAlJJINlWycSxkJBllcsiYVnBll2yJUBiq+SqEBCwD6FKIixMHlwyPyvGD44ELKNJ8hLt7vTkoWfuPff2z85s94hedL6nnrnTPd1fn3O+e26fextgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYjLrx/w3jxdi6ya5KAAAAAElFTkSuQmCC"/>
 </svg>
