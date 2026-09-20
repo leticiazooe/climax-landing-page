@@ -2,8 +2,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "climax-landing-page",
   "compatibility_date": "2026-09-20",
-  "observability": {
-    "enabled": true
+  "build": {
+    "command": "npm run build"
   },
   "assets": {
     "directory": "./dist",
