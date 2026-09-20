@@ -1,0 +1,35 @@
+name: Validate CLIMAX build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.18.0"
+          cache: npm
+
+      - name: Verify npm version
+        run: npm --version
+
+      - name: Clean install
+        run: npm ci --progress=false
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
