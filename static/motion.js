@@ -9,7 +9,7 @@
 
   document.querySelectorAll("[data-stagger-group]").forEach((group) => {
     [...group.querySelectorAll("[data-motion-item]")].forEach((item, index) => {
-      item.style.setProperty("--motion-delay", `${Math.min(index * 70, 210)}ms`);
+      item.style.setProperty("--motion-delay", `${Math.min(index * 72, 216)}ms`);
     });
   });
 
@@ -53,15 +53,66 @@
           else link.removeAttribute("aria-current");
         });
       },
-      { rootMargin: "-32% 0px -56% 0px", threshold: [0, 0.15, 0.35, 0.6] }
+      { rootMargin: "-30% 0px -58% 0px", threshold: [0, 0.15, 0.35, 0.6] }
     );
 
     navSections.forEach((section) => navObserver.observe(section));
   }
 
+  const hero = document.getElementById("inicio");
+  const heroVideo = document.getElementById("hero-video");
+  const stickyCta = document.querySelector(".mobile-sticky-cta");
+  const finalCta = document.querySelector(".final-cta");
+
+  let heroVisible = true;
+  let finalCtaVisible = false;
+
+  const syncStickyCta = () => {
+    if (!stickyCta) return;
+    stickyCta.classList.toggle("is-visible", !heroVisible && !finalCtaVisible);
+  };
+
+  if (hero && "IntersectionObserver" in window) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroVisible = entry.isIntersecting;
+        syncStickyCta();
+
+        if (!heroVideo || reduced) return;
+        if (entry.isIntersecting && !document.hidden) {
+          const playPromise = heroVideo.play();
+          if (playPromise?.catch) playPromise.catch(() => {});
+        } else {
+          heroVideo.pause();
+        }
+      },
+      { threshold: 0.08 }
+    );
+    heroObserver.observe(hero);
+  }
+
+  if (finalCta && "IntersectionObserver" in window) {
+    const finalObserver = new IntersectionObserver(
+      ([entry]) => {
+        finalCtaVisible = entry.isIntersecting;
+        syncStickyCta();
+      },
+      { threshold: 0.15 }
+    );
+    finalObserver.observe(finalCta);
+  }
+
   document.addEventListener(
     "visibilitychange",
-    () => document.body.classList.toggle("page-hidden", document.hidden),
+    () => {
+      document.body.classList.toggle("page-hidden", document.hidden);
+      if (!heroVideo || reduced) return;
+      if (document.hidden) heroVideo.pause();
+      else if (heroVisible) {
+        const playPromise = heroVideo.play();
+        if (playPromise?.catch) playPromise.catch(() => {});
+      }
+    },
     { passive: true }
   );
 })();
