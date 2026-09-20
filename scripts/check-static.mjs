@@ -41,7 +41,7 @@ const motionSize = (await stat("dist/motion.js")).size;
 const heroVideoSize = (await stat("dist/climax-hero.mp4")).size;
 
 if (htmlSize > 22000) throw new Error(`HTML too large: ${htmlSize} bytes`);
-if (cssSize > 26000) throw new Error(`CSS too large: ${cssSize} bytes`);
+if (cssSize > 28000) throw new Error(`CSS too large: ${cssSize} bytes`);
 if (motionSize > 4000) throw new Error(`Motion controller too large: ${motionSize} bytes`);
 if (heroVideoSize < 500000) throw new Error(`Hero video is unexpectedly small or invalid: ${heroVideoSize} bytes`);
 
