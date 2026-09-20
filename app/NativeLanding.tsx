@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native-web";
-import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "./MotionReveal";
-import { heroVideo } from "./heroVideo";
 
 const whatsapp =
   "https://wa.me/5516997078047?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20CLIMAX%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.";
@@ -81,7 +79,6 @@ function ActionButton({ label, light = false }: { label: string; light?: boolean
 
 export default function NativeLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const reducedMotion = useReducedMotion();
   const { width } = useWindowDimensions();
   const isMobile = width < 760;
 
@@ -109,12 +106,12 @@ export default function NativeLanding() {
 
       <View nativeID="inicio" style={styles.hero}>
         <video
-          src={heroVideo}
-          autoPlay={!reducedMotion}
+          src="/climax-hero.mp4"
+          autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           tabIndex={-1}
           aria-hidden="true"
@@ -162,17 +159,13 @@ export default function NativeLanding() {
 
       <View style={styles.trustBar}>
         <View style={styles.marqueeViewport}>
-          <motion.div
-            className="native-marquee-track"
-            animate={reducedMotion ? undefined : { x: ["0%", "-50%"] }}
-            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          >
+          <div className="native-marquee-track">
             {[...marqueeItems, ...marqueeItems].map((item, index) => (
               <div className="native-marquee-item" key={`${item}-${index}`} aria-hidden={index >= marqueeItems.length}>
                 <span>{item}</span><i />
               </div>
             ))}
-          </motion.div>
+          </div>
         </View>
       </View>
 
@@ -297,7 +290,7 @@ export default function NativeLanding() {
                   <Pressable accessibilityRole="button" accessibilityState={{ expanded: isOpen }} onPress={() => setOpenFaq(isOpen ? null : index)} style={styles.faqButton}>
                     <Text style={styles.faqIndex}>0{index + 1}</Text><Text style={styles.faqQuestion}>{question}</Text><Text style={styles.faqToggle}>{isOpen ? "−" : "+"}</Text>
                   </Pressable>
-                  {isOpen && <motion.div initial={reducedMotion ? false : { opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.25 }}><Text style={styles.faqAnswer}>{answer}</Text></motion.div>}
+                  {isOpen && <div className="faq-answer-reveal"><Text style={styles.faqAnswer}>{answer}</Text></div>}
                 </View>
               );
             })}
