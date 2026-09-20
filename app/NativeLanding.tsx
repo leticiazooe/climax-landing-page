@@ -169,7 +169,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View nativeID="aparelhos" style={styles.productsSection}>
+      <View nativeID="aparelhos" style={styles.productsSection} className="defer-section">
         <View style={styles.container}>
           <Reveal>
             <View style={[styles.sectionHeading, isMobile && styles.mobileAlignStart]}>
@@ -186,7 +186,7 @@ export default function NativeLanding() {
               <Reveal className="product-card-reveal" key={product.name} delay={index * 0.06}>
                 <View style={[styles.productCard, isMobile && styles.mobileFull]}>
                   <View style={styles.productImageWrap}>
-                    <Image source={{ uri: product.image }} accessibilityLabel={`Ar-condicionado ${product.brand} ${product.name}`} style={styles.productImage} resizeMode="contain" />
+                    <img src={product.image} alt={`Ar-condicionado ${product.brand} ${product.name}`} loading="lazy" decoding="async" style={{ width: "100%", height: 220, objectFit: "contain" }} />
                   </View>
                   <View style={styles.productContent}>
                     <Text style={styles.productBrand}>{product.brand}</Text>
@@ -209,7 +209,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View nativeID="servicos" style={styles.section}>
+      <View nativeID="servicos" style={styles.section} className="defer-section">
         <View style={styles.container}>
           <Reveal>
             <View style={[styles.sectionHeading, isMobile && styles.mobileAlignStart]}>
@@ -235,7 +235,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View style={styles.darkSection}>
+      <View style={styles.darkSection} className="defer-section">
         <View style={styles.darkInner}>
           <Reveal direction="left">
             <View style={[styles.darkIntro, isMobile && styles.mobileFull]}>
@@ -262,7 +262,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View nativeID="como-funciona" style={styles.processSection}>
+      <View nativeID="como-funciona" style={styles.processSection} className="defer-section">
         <View style={styles.container}>
           <Reveal className="process-heading-reveal"><View style={styles.processHeading}><Text style={styles.kicker}>COMO FUNCIONA</Text><Text accessibilityRole="header" style={styles.processSectionTitle}>Simples do contato ao serviço.</Text></View></Reveal>
           <View style={[styles.processGrid, isMobile && styles.mobileColumn]}>
@@ -279,7 +279,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View nativeID="duvidas" style={styles.section}>
+      <View nativeID="duvidas" style={styles.section} className="defer-section">
         <View style={[styles.faqInner, isMobile && styles.mobileColumn]}>
           <Reveal className="faq-intro-reveal" direction="left"><View style={styles.faqIntro}><Text style={styles.kicker}>DÚVIDAS FREQUENTES</Text><Text accessibilityRole="header" style={styles.sectionTitle}>Informação clara antes de começar.</Text><Text style={styles.faqLead}>Fale diretamente com a nossa equipe se precisar de outra informação.</Text></View></Reveal>
           <View style={[styles.faqList, isMobile && styles.mobileFull]}>
@@ -298,7 +298,7 @@ export default function NativeLanding() {
         </View>
       </View>
 
-      <View style={styles.ctaSection}>
+      <View style={styles.ctaSection} className="defer-section">
         <View style={[styles.ctaInner, isMobile && styles.mobileColumn]}>
           <Reveal className="cta-copy-reveal"><View style={styles.ctaCopy}><Text style={styles.kickerLight}>VAMOS CONVERSAR?</Text><Text style={styles.ctaTitle}>Seu orçamento começa com uma mensagem.</Text></View></Reveal>
           <ActionButton label="Chamar no WhatsApp" light />
