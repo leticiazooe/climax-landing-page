@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native-web";
 import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "./MotionReveal";
+import { heroVideo } from "./heroVideo";
 
 const whatsapp =
   "https://wa.me/5516997078047?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20CLIMAX%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.";
@@ -19,19 +20,19 @@ const products = [
     brand: "Samsung",
     name: "WindFree Connect 12.000 BTUs",
     detail: "Inverter · Sem vento · Connect",
-    image: "/products/samsung-windfree-12000.png",
+    image: "https://americanas.vtexassets.com/arquivos/ids/31517699/Split-Parede-Samsung-Windfree-Connect-Inverter-12-000-BTU-h-So-Frio-R-410a-220-1f.jpg?v=638836363916600000",
   },
   {
     brand: "LG",
     name: "Dual Inverter +AI Voice 12.000 BTUs",
     detail: "Inverter · +AI Voice · 220V",
-    image: "/products/lg-dual-inverter-ai-12000.png",
+    image: "https://a-static.mlcdn.com.br/800x800/ar-condicionado-split-inverter-lg-hi-wall-dual-voice-ai-12000-btus-frio-s3nq12ja31k-eb2gamz-220v/dufrio/100285836/0110816d65d4911eda503b3d3f978e65.jpeg",
   },
   {
     brand: "Philco",
     name: "Inverter 9.000 BTUs Frio 220V",
     detail: "Inverter · Frio · 220V",
-    image: "/products/philco-inverter-9000.png",
+    image: "https://friopecas.vtexassets.com/arquivos/ids/253108/Kit-1000x1000-PAC9FT-selo.jpg?v=639160259853230000",
   },
 ];
 
@@ -89,7 +90,7 @@ export default function NativeLanding() {
       <View accessibilityRole="banner" style={styles.header}>
         <View style={styles.headerInner}>
           <Pressable accessibilityRole="link" accessibilityLabel="CLIMAX Refrigeração — início" onPress={() => scrollTo("inicio")}>
-            <Image source={{ uri: "/climax-logo.png" }} accessibilityLabel="CLIMAX Refrigeração" style={styles.logo} resizeMode="contain" />
+            <Image source={{ uri: "/climax-logo.svg" }} accessibilityLabel="CLIMAX Refrigeração" style={styles.logo} resizeMode="contain" />
           </Pressable>
           <View style={styles.headerActions}>
             {!isMobile && <Pressable accessibilityRole="link" onPress={() => scrollTo("aparelhos")} style={styles.navLink}>
@@ -108,7 +109,7 @@ export default function NativeLanding() {
 
       <View nativeID="inicio" style={styles.hero}>
         <video
-          src="/climax-hero.mp4"
+          src={heroVideo}
           autoPlay={!reducedMotion}
           muted
           loop
@@ -314,7 +315,7 @@ export default function NativeLanding() {
       <View accessibilityRole="contentinfo" style={styles.footer}>
         <View style={[styles.footerInner, isMobile && styles.mobileColumn]}>
           <View style={[styles.footerColumn, styles.footerBrand, isMobile && styles.mobileFull]}>
-            <Image source={{ uri: "/climax-logo.png" }} accessibilityLabel="CLIMAX Refrigeração" style={styles.footerLogo} resizeMode="contain" />
+            <Image source={{ uri: "/climax-logo.svg" }} accessibilityLabel="CLIMAX Refrigeração" style={styles.footerLogo} resizeMode="contain" />
             <Text style={styles.footerText}>Instalação, manutenção e climatização para empresas, lojas, igrejas e outros ambientes comerciais.</Text>
           </View>
 
