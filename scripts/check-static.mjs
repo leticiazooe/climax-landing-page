@@ -30,8 +30,10 @@ for (const [ok, message] of rules) {
 
 const htmlSize = (await stat("dist/index.html")).size;
 const cssSize = (await stat("dist/styles.css")).size;
+const heroVideoSize = (await stat("dist/climax-hero.mp4")).size;
 
 if (htmlSize > 22000) throw new Error(`HTML too large: ${htmlSize} bytes`);
 if (cssSize > 24000) throw new Error(`CSS too large: ${cssSize} bytes`);
+if (heroVideoSize < 500000) throw new Error(`Hero video is unexpectedly small or invalid: ${heroVideoSize} bytes`);
 
-console.log(`Performance checks passed — HTML ${htmlSize} B, CSS ${cssSize} B, application JS 0 B, hero video immediate`);
+console.log(`Performance checks passed — HTML ${htmlSize} B, CSS ${cssSize} B, hero video ${heroVideoSize} B, application JS 0 B`);
