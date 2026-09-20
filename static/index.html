@@ -9,6 +9,8 @@
   <meta name="robots" content="index,follow">
   <link rel="icon" href="/climax-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <meta property="og:title" content="CLIMAX Refrigeração — Seu ambiente no clima certo">
   <meta property="og:description" content="Instalação, manutenção e climatização em Jaboticabal, Matão e região.">
   <meta property="og:type" content="website">
@@ -26,7 +28,7 @@
   </header>
 
   <section id="inicio" class="hero">
-    <video class="hero-video" src="https://cdn.jsdelivr.net/gh/leticiazooe/climax-landing-page@bb2a744eb4e4c3f98b8ca03755130077f5d1f93d/public/climax-hero.mp4" poster="/og.svg" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
+    <video id="hero-video" class="hero-video" data-src="https://cdn.jsdelivr.net/gh/leticiazooe/climax-landing-page@bb2a744eb4e4c3f98b8ca03755130077f5d1f93d/public/climax-hero.mp4" poster="/og.svg" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="hero-overlay" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-inner"><div class="hero-copy">
       <div class="eyebrow"><span></span>Jaboticabal, Matão e região</div>
@@ -107,5 +109,58 @@
     <div class="footer-contact"><a href="tel:+5516997078047">(16) 99707-8047</a><a href="https://www.instagram.com/grupoclimaxrefrigeracao/" target="_blank" rel="noopener noreferrer">@grupoclimaxrefrigeracao</a></div>
   </div></footer>
 </main>
+<script>
+(() => {
+  const video = document.getElementById("hero-video");
+  if (!video) return;
+
+  const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reduced || saveData) return;
+
+  let idleReady = false;
+  let visible = true;
+  let loaded = false;
+
+  const play = () => {
+    if (!idleReady || !visible || document.hidden) return;
+    if (!loaded) {
+      loaded = true;
+      video.src = video.dataset.src || "";
+      video.addEventListener("canplay", () => video.classList.add("is-ready"), { once: true });
+      video.load();
+    }
+    const promise = video.play();
+    if (promise && typeof promise.catch === "function") promise.catch(() => {});
+  };
+
+  const pause = () => {
+    if (!video.paused) video.pause();
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      visible ? play() : pause();
+    }, { threshold: 0.08 });
+    observer.observe(video);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    document.hidden ? pause() : play();
+  }, { passive: true });
+
+  const ready = () => {
+    idleReady = true;
+    play();
+  };
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(ready, { timeout: 1200 });
+  } else {
+    setTimeout(ready, 700);
+  }
+})();
+</script>
 </body>
 </html>
