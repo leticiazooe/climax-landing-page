@@ -37,6 +37,11 @@
     .map((link) => document.getElementById(link.dataset.navSection || ""))
     .filter(Boolean);
 
+  const navToggle = document.getElementById("nav-toggle");
+  if (navToggle) {
+    navLinks.forEach((link) => link.addEventListener("click", () => { navToggle.checked = false; }));
+  }
+
   if (navSections.length && "IntersectionObserver" in window) {
     const navObserver = new IntersectionObserver(
       (entries) => {
@@ -62,7 +67,7 @@
   const hero = document.getElementById("inicio");
   const heroVideo = document.getElementById("hero-video");
   const stickyCta = document.querySelector(".mobile-sticky-cta");
-  const finalCta = document.querySelector(".final-cta");
+  const finalCta = document.querySelector(".cta-section");
 
   let heroVisible = true;
   let finalCtaVisible = false;
