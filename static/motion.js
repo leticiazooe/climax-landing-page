@@ -62,7 +62,7 @@
   const hero = document.getElementById("inicio");
   const heroVideo = document.getElementById("hero-video");
   const stickyCta = document.querySelector(".mobile-sticky-cta");
-  const finalCta = document.querySelector(".final-cta");
+  const finalCta = document.querySelector(".cta-section");
 
   let heroVisible = true;
   let finalCtaVisible = false;
