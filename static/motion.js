@@ -61,6 +61,7 @@
 
   const hero = document.getElementById("inicio");
   const heroVideo = document.getElementById("hero-video");
+  const header = document.querySelector(".site-header");
   const stickyCta = document.querySelector(".mobile-sticky-cta");
   const finalCta = document.querySelector(".final-cta");
 
@@ -75,18 +76,19 @@
   if (hero && "IntersectionObserver" in window) {
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
-        heroVisible = entry.isIntersecting;
+        heroVisible = entry.intersectionRatio > 0.08;
         syncStickyCta();
+        header?.classList.toggle("is-scrolled", entry.intersectionRatio < 0.92);
 
         if (!heroVideo || reduced) return;
-        if (entry.isIntersecting && !document.hidden) {
+        if (heroVisible && !document.hidden) {
           const playPromise = heroVideo.play();
           if (playPromise?.catch) playPromise.catch(() => {});
         } else {
           heroVideo.pause();
         }
       },
-      { threshold: 0.08 }
+      { threshold: [0, 0.08, 0.92, 1] }
     );
     heroObserver.observe(hero);
   }
