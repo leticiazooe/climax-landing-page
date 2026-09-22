@@ -37,6 +37,11 @@
     .map((link) => document.getElementById(link.dataset.navSection || ""))
     .filter(Boolean);
 
+  const navToggle = document.getElementById("nav-toggle");
+  if (navToggle) {
+    navLinks.forEach((link) => link.addEventListener("click", () => { navToggle.checked = false; }));
+  }
+
   if (navSections.length && "IntersectionObserver" in window) {
     const navObserver = new IntersectionObserver(
       (entries) => {

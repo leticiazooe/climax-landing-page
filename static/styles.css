@@ -100,6 +100,36 @@ section[id] { scroll-margin-top: 24px; }
 .main-nav a:hover::after,
 .main-nav a.is-current::after { right: 0; }
 
+.nav-toggle-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.nav-toggle-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  cursor: pointer;
+}
+.nav-toggle-input:focus-visible ~ .nav-toggle-btn {
+  outline: 3px solid var(--ice);
+  outline-offset: 4px;
+}
+.nav-toggle-bars {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 -7px 0 #fff, 0 7px 0 #fff;
+}
+
 .button {
   min-height: 48px;
   display: inline-flex;
@@ -894,6 +924,21 @@ section[id] { scroll-margin-top: 24px; }
 
 @media (max-width: 980px) {
   .main-nav { display: none; }
+  .nav-toggle-btn { display: flex; }
+  .nav-toggle-input:checked ~ .main-nav {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 18px 24px 24px;
+    background: var(--navy-2);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-toggle-input:checked ~ .main-nav a { width: 100%; padding: 12px 0; font-size: 14px; }
   .need-layout,
   .process-story-inner,
   .local-inner,
