@@ -62,7 +62,7 @@ section[id] { scroll-margin-top: 24px; }
   position: absolute;
   inset: 0 0 auto;
   z-index: 20;
-  height: 92px;
+  height: 96px;
   display: flex;
   align-items: center;
 }
@@ -72,21 +72,23 @@ section[id] { scroll-margin-top: 24px; }
   to { opacity: 1; transform: translate3d(0,0,0); }
 }
 .header-inner {
-  width: min(1180px, calc(100% - 48px));
-  min-height: 68px;
-  margin: 0 auto;
-  padding: 8px 14px;
+  width: 100%;
+  min-height: 72px;
+  margin: 0;
+  padding:
+    9px
+    max(24px, calc((100vw - 1180px) / 2 + 14px));
   display: flex;
   align-items: center;
   gap: 30px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 18px;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   background:
-    linear-gradient(180deg, rgba(2,31,51,.46), rgba(2,31,51,.30)),
-    rgba(2,31,51,.16);
+    linear-gradient(180deg, rgba(2,31,51,.48), rgba(2,31,51,.28)),
+    rgba(2,31,51,.14);
   box-shadow:
-    0 10px 34px rgba(0,0,0,.12),
-    inset 0 1px 0 rgba(255,255,255,.035);
+    0 12px 32px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.025);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -199,7 +201,7 @@ section[id] { scroll-margin-top: 24px; }
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 790px;
+  min-height: 860px;
   overflow: hidden;
   background: var(--navy);
 }
@@ -224,7 +226,7 @@ section[id] { scroll-margin-top: 24px; }
   position: relative;
   z-index: 4;
   width: min(1180px, calc(100% - 48px));
-  min-height: 790px;
+  min-height: 860px;
   margin: 0 auto;
   padding: 150px 0 86px;
   display: flex;
@@ -994,7 +996,6 @@ section[id] { scroll-margin-top: 24px; }
 
 @media (max-width: 760px) {
   .container,
-  .header-inner,
   .hero-inner,
   .proof-strip-inner,
   .process-story-inner,
@@ -1003,9 +1004,9 @@ section[id] { scroll-margin-top: 24px; }
 
   .site-header { height: 78px; }
   .header-inner {
+    width: 100%;
     min-height: 60px;
-    padding: 7px 10px;
-    border-radius: 16px;
+    padding: 7px 16px;
   }
   .brand-link img { width: 142px; height: auto; }
   .header-cta { display: none; }
