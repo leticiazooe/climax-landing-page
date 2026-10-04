@@ -107,7 +107,7 @@ section[id] { scroll-margin-top: 24px; }
 .main-nav a {
   position: relative;
   color: rgba(255,255,255,.78);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: .02em;
   transition: color var(--motion-fast) var(--ease-enter);
