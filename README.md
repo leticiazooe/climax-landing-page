@@ -69,3 +69,8 @@ O repositório inclui a skill Humanizer em `.agents/skills/humanizer/SKILL.md`.
 Agentes que editarem texto público da CLIMAX devem seguir o `AGENTS.md`: preservar fatos e dados técnicos, manter o texto em português do Brasil e evitar frases genéricas, exageros e texto com aparência de resposta de chatbot.
 
 A skill Humanizer é de `blader/humanizer` e mantém sua licença MIT em `.agents/skills/humanizer/LICENSE`.
+
+
+## Roteamento no Cloudflare Workers
+
+A landing é estática. O `wrangler.jsonc` usa `html_handling: "none"` para impedir redirecionamentos automáticos de canonicalização de HTML no Workers, mantendo `not_found_handling: "single-page-application"` apenas como fallback 200 para `index.html`. Isso evita loops de redirecionamento em navegadores como Safari sem alterar a estrutura visual do site.
